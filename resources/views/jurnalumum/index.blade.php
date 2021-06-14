@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Laporan | Lapora Penggajian')
+@section('title','Laporan Jurnal Umum CV. BANYU BIRU')
 @section('laporan','menu-is-opening menu-open')
 @section('lap_jurnal_umum','active')
 @push('addon-style')
@@ -34,13 +34,7 @@
                 <div class="card-header">
                     <div class="card-title col-12">
                         Laporan Penggajian
-                        <form action="{{ route('laporan-periode') }}" method="get" class="float-right">
-                            <label for="tanggal_awal">Tanggal Awal</label>
-                            <input type="date" name="tanggal_awal" class="">
-                            <label for="tanggal_akhir">Tanggal Akhir</label>
-                            <input type="date" name="tanggal_akhir" class="">
-                            <input type="submit" value="Cetak">
-                        </form>
+                    
                     </div>
                 </div><!-- /.card-header -->
                 <div class="card-body">
@@ -62,12 +56,31 @@
                             @foreach ($jurnalUmum as $key => $row)
                             <tr>
                                 <td>{!! $row->created_at !!}</td>
-                                <td>{!! $row->keterangan !!}</td>
+                                
+                               
+                                
+                                @if ($row->keterangan=="Kas")
+                                <td align="right">{!! $row->keterangan !!}</td>
+                                @else
+                                <td align="left">{!! $row->keterangan !!}</td>
+                                @endif
+
+                                
+
+
                                 <td>{!! number_format($row->debit) !!}</td>
-                                <td>{!! number_format($row->kredit) !!}</td>f
+                                <td>{!! number_format($row->kredit) !!}</td>
                             </tr>
                             @endforeach
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Keterangan</th>
+                                <th>Debit</th>
+                                <th>Kredit</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div><!-- /.card-body -->
             </div>
@@ -91,10 +104,20 @@
 <script src="{{url('adminlte/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{url('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 <script>
-    $("#example1").DataTable({
-        "responsive": true,
-        "lengthChange": false,
-        "autoWidth": false,
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["print"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
 </script>
 @endpush

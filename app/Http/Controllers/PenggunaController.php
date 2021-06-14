@@ -6,7 +6,6 @@ use App\User;
 use App\Level;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
-use Illuminate\Support\Facades\Hash;
 
 class PenggunaController extends Controller
 {
@@ -23,9 +22,9 @@ class PenggunaController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'level' => $request->input('role'),
-            'password' => Hash::make($request->input('password')),
+            'password' =>$request->input('password'),
         ];
-        dd($post);
+        // dd($post);
         User::create($post);
         return redirect()->route('pengguna.index');
     }
@@ -36,7 +35,7 @@ class PenggunaController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'level' => $request->input('role'),
-            'password' => Hash::make($request->input('password')),
+            'password' =>$request->input('password'),
         ];
         $user = User::findOrFail($id);
         $user->update($post);

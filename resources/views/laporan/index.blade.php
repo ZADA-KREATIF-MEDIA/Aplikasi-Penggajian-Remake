@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Laporan | Lapora Penggajian')
+@section('title','Laporan | Laporan Penggajian')
 @section('laporan','menu-is-opening menu-open')
 @section('lap_penggajian','active')
 @push('addon-style')
@@ -68,6 +68,14 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>no</th>
+                                <th>name</th>
+                                <th>tanggal</th>
+                                <th>gaji bersih</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div><!-- /.card-body -->
             </div>
@@ -96,5 +104,9 @@
         "lengthChange": false,
         "autoWidth": false,
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+
+    
 </script>
+
 @endpush

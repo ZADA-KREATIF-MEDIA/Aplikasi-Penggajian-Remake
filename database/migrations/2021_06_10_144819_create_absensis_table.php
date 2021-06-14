@@ -18,11 +18,8 @@ class CreateAbsensisTable extends Migration
             $table->unsignedInteger('user_id'); 
             $table->string('status'); 
             $table->date('tanggal'); 
-            $table->time('jam_masuk'); 
-            $table->time('jam_keluar'); 
             $table->string('keterangan');
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }

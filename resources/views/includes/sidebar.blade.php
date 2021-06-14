@@ -8,14 +8,12 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-       
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
             with font-awesome or any other icon font library -->
-              
+            
                 <li class="nav-item">
                     <a href="{{ url('/home') }}" class="nav-link @yield('dashboard')">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -90,6 +88,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('laporan_jabatan.index') }}" class="nav-link @yield('lap_penggajian_jabatan')">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Per-Jabatan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('jurnalUmum.index') }}" class="nav-link @yield('lap_jurnal_umum')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Jurnal Umum</p>
@@ -98,14 +102,14 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('level.index') }}" class="nav-link @yield('level')">
+                    <a href="{{ route('level.index') }}" class="nav-link @yield('role')">
                         <i class="nav-icon fas fa-user-shield"></i>
                         <p>
                             Level
                         </p>
                     </a>
                 </li>
-
+        
                 <li class="nav-item">
                     <a href="{{ route('slipgaji.index') }}" class="nav-link @yield('penggajian')">
                         <i class="nav-icon fas fa-dollar-sign"></i>
@@ -114,6 +118,7 @@
                         </p>
                     </a>
                 </li>
+            
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

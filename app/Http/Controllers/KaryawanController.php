@@ -11,7 +11,7 @@ class KaryawanController extends Controller
 {
     public function index()
     {
-        $data['karyawan'] = User::role('karyawan')->get();
+        $data['karyawan'] = User::where('level','karyawan')->get();
         return view('karyawan.index', $data);
     }
 

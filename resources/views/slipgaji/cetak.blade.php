@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +9,7 @@
 <body onload="window.print()">
 	<center>
 		<div class="text-center">
-			<img src="{{ URL::to('/') }}/images/logo.png" alt="logo" style="width: 200px; background:black;">
+
 			<h3>CV BANYU BIRU</h3>
 			<h4>SLIP GAJI KARYAWAN</h4>
 		</div>
@@ -23,10 +24,9 @@
 			<td> : </td>
 			<td>{!! $karyawan->nip !!}</td>
 			<td>
-				<label class="col-md-4">Jabatan</label>
+				<label class="col-md-4">Divisi</label>
 			<td> : </td>
-			<td>{!! $karyawan->jabatan->name !!}</td>
-
+			<td>{!! $karyawan->divisi->name !!}</td>
 		</tr>
 		<tr>
 			<td>
@@ -34,7 +34,10 @@
 			</td>
 			<td> : </td>
 			<td>{!! $karyawan->name !!}</td>
-
+			<td>
+				<label class="col-md-4">Jabatan</label>
+			<td> : </td>
+			<td>{!! $karyawan->jabatan->name !!}</td>
 		</tr>
 	</table>
 	<br>
@@ -81,13 +84,20 @@
 		<tr>
 			<td></td>
 			<td></td>
-			<td align="right">Rp. {!! number_format($karyawan->jabatan->gapok + $karyawan->jabatan->tunjangan + ($karyawan->jabatan->lembur * $lembur)) !!}</td>
+			<td align="right" style="background-color:#e0e0e0"><strong>Gaji Kotor = Rp. {!! number_format($karyawan->jabatan->gapok + $karyawan->jabatan->tunjangan + ($karyawan->jabatan->lembur * $lembur)) !!}</strong></td>
 			<td></td>
 		</tr>
+		<tr height="25">
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+
 		<tr>
 			<td>4.</td>
-			<td>Potongan Kehadiran(26 hari - {{$masuk}} hari = {{26-$masuk}} hari)</td>
-			<td align="right">Rp. {!! number_format($karyawan->jabatan->gapok-($masuk*($karyawan->jabatan->gapok/26))) !!}</td>
+			<td>Potongan Kehadiran</td>
+			<td align="right">Rp. {!! number_format($karyawan->jabatan->gapok-($masuk*($karyawan->jabatan->gapok/21))) !!}</td>
 			<td></td>
 		</tr>
 
@@ -103,7 +113,7 @@
 		<tr>
 			<td></td>
 			<td></td>
-			<td align="right">Rp. {!! number_format(($karyawan->jabatan->gapok + $karyawan->jabatan->tunjangan + ($karyawan->jabatan->lembur * $lembur))-($karyawan->jabatan->gapok-($masuk*($karyawan->jabatan->gapok/26)))) !!}</td>
+			<td align="right" style="background-color:#dbffca"><strong>Gaji Bersih = Rp. {!! number_format(($karyawan->jabatan->gapok + $karyawan->jabatan->tunjangan + ($karyawan->jabatan->lembur * $lembur))-($karyawan->jabatan->gapok-($masuk*($karyawan->jabatan->gapok/21)))) !!}</strong></td>
 			<td></td>
 		</tr>
 
@@ -116,14 +126,19 @@
 	<br>
 	<table width="100%">
 		<tr>
-			<td width="50%">
+			<td width="25%">
 				Penerima <br><br><br><br>
 				{!! $karyawan->name !!}
+			</td>
+			<td width="25%">
+				Di Setujui Oleh <br><br><br><br>
+				(_____________________)
 			</td>
 			<td width="50%" align="right">
 				{!! \Carbon\Carbon::now()->format('d F Y') !!}<br><br><br><br>
 				Slip Gaji
 			</td>
+			
 		</tr>
 	</table>
 

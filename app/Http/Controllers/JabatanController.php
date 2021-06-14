@@ -19,7 +19,6 @@ class JabatanController extends Controller
     public function store(JabatanRequest $request)
     {
         Jabatan::create($request->all());
-        Session::flash('message', 'Tambah Jabatan berhasil.'); 
         return redirect()->route('jabatan.index');
     }
 
@@ -36,5 +35,4 @@ class JabatanController extends Controller
         return redirect()->back();  
     }
 
-    
 }

@@ -50,9 +50,7 @@
                                 <th>nip karyawan (nama)</th>
                                 <th>tanggal</th>
                                 <th>status</th>
-                                <th>jam masuk</th>
-                                <th>jam keluar</th>
-                                <th>keterangan</th>
+                               
                                 <th></th>
                             </tr>
                         </thead>
@@ -63,9 +61,7 @@
                                     <td>{!! $row->user->nip !!} ({!! $row->user->name !!})</td>
                                     <td>{!! $row->tanggal !!}</td>
                                     <td class="desc">{{ $row->status }}</td>
-                                    <td>{!! $row->jam_masuk !!}</td>
-                                    <td>{!! $row->jam_keluar !!}</td>
-                                    <td>{!! $row->keterangan !!}</td>
+                                   
                                 <td class="text-center">
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editabsensiModal{!!$row->id!!}"><i class="fa fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusabsensiModal{!!$row->id!!}"><i class="fa fa-trash"></i></button>
@@ -73,6 +69,16 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>id</th>
+                                <th>nip karyawan (nama)</th>
+                                <th>tanggal</th>
+                                <th>status</th>
+                              
+                                <th></th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div><!-- /.card-body -->
             </div>

@@ -49,7 +49,7 @@
                                 <th>no</th>
                                 <th>nip karyawan (nama)</th>
                                 <th>tanggal</th>
-                                <th>lama lembur</th>
+                                <th>Durasi lembur</th>
                                 <th>keterangan</th>
                                 <th>aksi</th>
                             </tr>
@@ -69,6 +69,16 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>no</th>
+                                <th>nip karyawan (nama)</th>
+                                <th>tanggal</th>
+                                <th>Durasi Lembur</th>
+                                <th>keterangan</th>
+                                <th>aksi</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div><!-- /.card-body -->
             </div>

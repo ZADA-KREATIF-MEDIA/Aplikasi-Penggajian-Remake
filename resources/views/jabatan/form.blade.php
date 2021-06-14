@@ -20,7 +20,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('tunjangan', 'Tunjangan') !!}
+    {!! Form::label('tunjangan', 'Tunjangan Jabatan') !!}
     {!! Form::number('tunjangan', null, ['class' => $errors->has('tunjangan') ? 'form-control is-invalid' : $errors->has('tunjangan') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Tunjangan (Rp)', 'autocomplete' => 'off']) !!}
     @if ($errors->has('tunjangan'))
     <span class="invalid-feedback">
@@ -28,6 +28,11 @@
     </span>
     @endif
 
+</div>
+
+<div class="form-group">
+    <label>Tunjangan Makan</label>
+    <input type="email" class="form-control" aria-describedby="emailHelp" value="Rp 10,000" disabled>
 </div>
 
 <div class="form-group">

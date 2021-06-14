@@ -33,6 +33,7 @@ Route::resource('slipgaji', 'SlipGajiController');
 Route::resource('laporan', 'LaporanController');
 Route::resource('jurnalUmum', 'JurnalUmumController');
 Route::resource('level','LevelController');
+Route::resource('laporan_jabatan', 'LaporanJabatanController');
 // Route::resource('bukuBesar', 'BukuBesarController');
 
 // });

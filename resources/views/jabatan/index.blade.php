@@ -32,7 +32,9 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
+                   
                     <div class="card-title col-12">
+                       
                         Data Jabatan
                         <button class="btn btn-success btn-sm float-right text-uppercase" data-toggle="modal" data-target="#tambahJabatanModal"><i class="fa fa-plus"></i>tambah</button>
                     </div>
@@ -42,15 +44,19 @@
                     <div class="alert alert-success">
                         {!! Session::get('message') !!}
                     </div>
+                    
                     @endif
+                    
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>nama jabatan</th>
                                 <th>gaji pokok</th>
-                                <th>tunjangan</th>
+                                <th>tunjangan Jabatan</th>
                                 <th>lembur (per jam)</th>
+                                <th>tunjangan Makan</th>
+                                
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -62,6 +68,7 @@
                                 <td>Rp. {!! number_format($row->gapok) !!}</td>
                                 <td>Rp. {!! number_format($row->tunjangan) !!}</td>
                                 <td>Rp. {!! number_format($row->lembur) !!}</td>
+                                <td>Rp. 10,000</td>
                                 <td class="text-center">
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editJabatanModal{!!$row->id!!}"><i class="fa fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusJabatanModal{!!$row->id!!}"><i class="fa fa-trash"></i></button>
@@ -69,7 +76,19 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>nama jabatan</th>
+                                <th>gaji pokok</th>
+                                <th>tunjangan</th>
+                                <th>lembur (per jam)</th>
+                                <th>tunjangan Makan</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </tfoot>
                     </table>
+                    <button class="btn btn-primary disabled">KET : UANG MAKAN IDR 10.000</button>
                 </div><!-- /.card-body -->
             </div>
             <!-- /.card -->
