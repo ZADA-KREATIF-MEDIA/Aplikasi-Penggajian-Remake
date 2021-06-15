@@ -17,8 +17,8 @@ class KaryawanController extends Controller
 
     public function store(KaryawanRequest $request)
     {
-        $requestData = $request->except('roles');
-        $user = User::create($requestData);
+
+        User::create($request->all());
         return redirect()->route('karyawan.index');
     }
 

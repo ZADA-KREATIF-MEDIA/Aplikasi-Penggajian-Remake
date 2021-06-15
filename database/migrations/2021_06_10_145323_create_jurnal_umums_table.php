@@ -17,7 +17,6 @@ class CreateJurnalUmumsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('laporan_id');
             $table->string('keterangan');
-            $table->string('ref');
             $table->integer('debit');
             $table->integer('kredit');
             $table->timestamps();

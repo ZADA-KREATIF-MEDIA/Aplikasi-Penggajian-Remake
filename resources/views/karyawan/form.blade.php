@@ -118,3 +118,5 @@
 	</span>
 	@endif
 </div>
+
+<input type="hidden" name="level" value="karyawan">

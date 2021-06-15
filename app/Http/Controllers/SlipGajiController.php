@@ -10,7 +10,7 @@ class SlipGajiController extends Controller
 {
     public function index()
     {
-        $data['karyawan'] = User::role('karyawan')->whereId(auth()->user()->id)->get();
+        $data['karyawan'] = User::where('level','karyawan')->whereId(auth()->user()->id)->get();
         return view('penggajian.index', $data);
     }
 

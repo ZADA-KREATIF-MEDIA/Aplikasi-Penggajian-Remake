@@ -50,9 +50,7 @@
                                 <th>No</th>
                                 <th>NIP Karyawan</th>
                                 <th>Nama</th>
-                                <th>Jenis Karyawan</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Status</th>
                                 <th>Agama</th>
                                 <th>Aksi</th>
                             </tr>
@@ -62,10 +60,8 @@
                             <tr>
                                 <td>{!! $key+1 !!}</td>
                                 <td>{!! $row->nip !!}</td>
-                                <td>{!! $row->name !!}</td>
-                                <td>{!! $row->jenis_karyawan !!}</td>
+                                <td>{!! $row->name !!}</td>                          
                                 <td>{!! $row->jk !!}</td>
-                                <td>{!! $row->status !!}</td>
                                 <td>{!! $row->agama !!}</td>
                                 <td>
                                     <a href="/user-restore/{{ $row->id }}" class="btn btn-primary btn-sm float-left text-uppercase" >Restore</a>
@@ -74,19 +70,6 @@
                             </tr>
                             @endforeach
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>No</th>
-                                <th>NIP Karyawan</th>
-                                <th>Nama</th>
-                                <th>Jenis Karyawan</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Status</th>
-                                <th>Agama</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </tfoot>
-                 
                     </table>
                 </div><!-- /.card-body -->
             </div>

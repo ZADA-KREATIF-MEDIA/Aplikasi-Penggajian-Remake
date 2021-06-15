@@ -6,7 +6,7 @@
 			    {!! Form::label('user_id', 'Karyawan', ['class' => 'col-form-label']) !!}
 
 		        <select name="user_id" class="{!! $errors->has('user_id') ? 'form-control is-invalid' : $errors->has('user_id') ? 'form-control is-invalid' : 'form-control' !!}" disabled="">
-		            @foreach (App\User::role('karyawan')->get() as $val)
+		            @foreach (App\User::where('level','karyawan')->get() as $val)
 		            <option value="{!! $row->id !!}" {!! $row->id == $val->id ? 'selected' : '' !!} >{!! $val->nip !!} ({!! $val->name !!})</option>
 		            @endforeach
 		        </select>

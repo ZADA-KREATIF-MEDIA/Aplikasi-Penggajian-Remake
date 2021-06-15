@@ -9,7 +9,6 @@ class JurnalUmum extends Model
     protected $fillable = [
         'laporan_id',
 		'keterangan',
-		'ref',
 		'debit',
 		'kredit',
     ];

@@ -1,7 +1,7 @@
 <div class="form-group">
     {!! Form::label('user_id', 'Karyawan') !!}
     <select name="user_id" class="{!! $errors->has('user_id') ? 'form-control is-invalid' : $errors->has('user_id') ? 'form-control is-invalid' : 'form-control' !!}">
-        @foreach (App\User::role('karyawan')->get() as $row)
+        @foreach (App\User::where('level','karyawan')->get() as $row)
         <option value="{!! $row->id !!}">{!! $row->nip !!} ({!! $row->name !!})</option>
         @endforeach
     </select>
