@@ -43,15 +43,14 @@ class LaporanController extends Controller
     {
         $cek = Laporan::whereUserId($request->user_id)->whereBulan($request->bulan)->whereTahun($request->tahun)->first();
         $laporan = Laporan::firstOrCreate(['user_id'=>$request->user_id, 'bulan'=>$request->bulan, 'tahun'=>$request->tahun], $request->all());
-        if (! $cek) {
+
+        if (!$cek) {
             Session::flash('message', 'Gaji Karyawan Berhasil.'); 
-            // jurnal
-            $laporan->jurnalUmum()->create(['keterangan'=>'Gaji', 'debit'=> $request->gaji_bersih]);
-            $laporan->jurnalUmum()->create(['keterangan'=>'Kas', 'kredit'=> $request->gaji_bersih]);
-            // buku besar kas
-            $laporan->bukuBesarKas()->create(['keterangan'=>'Gaji', 'kredit'=> $request->gaji_bersih, 'saldo'=> $request->gaji_bersih + BukuBesarKas::sum('kredit') ]); 
-            // buku besar gaji
-            $laporan->bukuBesarGaji()->create(['keterangan'=>'Kas', 'debit'=> $request->gaji_bersih, 'saldo'=> $request->gaji_bersih + BukuBesarGaji::sum('debit') ]);
+            // jurnal 
+            $laporan->jurnalUmum()->create(['keterangan'=>'Gaji', 'debit'=> $request->gaji_bersih ,'kredit'=>'0']);
+            $laporan->jurnalUmum()->create(['keterangan'=>'Kas', 'kredit'=> $request->gaji_bersih,'debit'=>'0']);
+           
+        
         } else {
             Session::flash('message', 'Karyawan atas nama ' . $laporan->user->name . ' sudah gajian bulan ini pada tanggal ' . $laporan->created_at->format('d, F Y')); 
         }

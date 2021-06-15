@@ -92,16 +92,6 @@
 			</div>
 
 			<div class="form-group">
-				{!! Form::label('pph', 'PPH 5% (Rp)', []) !!}
-				{!! Form::text('pph', ($row->jabatan->gapok + $row->jabatan->tunjangan + $row->lembur()->totalLembur($row->id)*$row->jabatan->lembur) * 0.05, ['class'=>'form-control', 'readonly']) !!}
-			</div>
-
-			<div class="form-group">
-				{!! Form::label('pph', 'BPJS Ketenagakerjaan 2% (Rp)', []) !!}
-				{!! Form::text('bpjs', ($row->jabatan->gapok + $row->jabatan->tunjangan + $row->lembur()->totalLembur($row->id)*$row->jabatan->lembur) * 0.02, ['class'=>'form-control', 'readonly']) !!}
-			</div>
-
-			<div class="form-group">
 				{!! Form::label('gaji_bersih', 'Gaji Bersih (Rp)', []) !!}
 				{!! Form::text('gaji_bersih', ($row->jabatan->gapok + $row->jabatan->tunjangan + $row->lembur()->totalLembur($row->id)*$row->jabatan->lembur  - ($row->jabatan->gapok + $row->jabatan->tunjangan + $row->lembur()->totalLembur($row->id)*$row->jabatan->lembur) * 0.05) - ($row->jabatan->gapok + $row->jabatan->tunjangan + $row->lembur()->totalLembur($row->id)*$row->jabatan->lembur) * 0.02, ['class'=>'form-control', 'readonly']) !!}
 			</div>
